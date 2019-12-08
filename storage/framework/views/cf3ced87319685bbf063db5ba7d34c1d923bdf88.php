@@ -1,0 +1,1 @@
+<?php /**PATH /home/hix/laraussd/dry-beach-93173/resources/views/districts/datatables_actions.blade.php ENDPATH**/ ?>

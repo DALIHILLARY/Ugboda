@@ -1,0 +1,9 @@
+[2019-12-08 18:59:33] local.ERROR: Command "require" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"require\" is not defined. at /home/hix/laraussd/dry-beach-93173/vendor/symfony/console/Application.php:652)
+[stacktrace]
+#0 /home/hix/laraussd/dry-beach-93173/vendor/symfony/console/Application.php(237): Symfony\\Component\\Console\\Application->find('require')
+#1 /home/hix/laraussd/dry-beach-93173/vendor/symfony/console/Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /home/hix/laraussd/dry-beach-93173/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /home/hix/laraussd/dry-beach-93173/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /home/hix/laraussd/dry-beach-93173/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
