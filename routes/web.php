@@ -1,6 +1,4 @@
 <?php
-use App\Http\Controllers\MemberController;
-use App\Http\Controllers\HierarchyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +14,3 @@ use App\Http\Controllers\HierarchyController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
-
-
-//Route::post('select-ajax,['as'=>'select-ajax','uses'=>'HierarchyController@select']);
-
