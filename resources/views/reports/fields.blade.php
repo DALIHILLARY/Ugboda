@@ -16,12 +16,6 @@
     {!! Form::text('category', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Riderid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('riderId', 'Riderid:') !!}
-    {!! Form::number('riderId', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Progress Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('progress', 'Progress:') !!}

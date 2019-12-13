@@ -17,9 +17,8 @@ class CreateReportTable extends Migration
             $table->bigIncrements('id');
             $table->string('plate');
             $table->string('phone');
-            $table->enum('category',['THEFT','MURDER','OTHERS']);
-            $table->integer('riderId');
-            $table->enum('progress',['ACTIVE','SOLVED']);
+            $table->enum('category',['THEFT','MURDER','OTHERS','RAPE','NULL'])->default('NULL');
+            $table->enum('progress',['ACTIVE','SOLVED','NULL'])->default('NULL');
             $table->softDeletes('deleted_at');
 
             $table->timestamps();

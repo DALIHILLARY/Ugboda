@@ -65,7 +65,10 @@ class LogDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            
+            'passPhone',
+            'riderPhone',
+            'plate',
+            'approved'
         ];
     }
 

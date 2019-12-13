@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Rider
  * @package App\Models
- * @version December 11, 2019, 7:30 am UTC
+ * @version December 13, 2019, 5:20 pm UTC
  *
  * @property string FirstName
  * @property string LastName

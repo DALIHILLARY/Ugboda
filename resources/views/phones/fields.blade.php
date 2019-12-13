@@ -4,6 +4,18 @@
     {!! Form::number('rider', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Phone Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('phone', 'Phone:') !!}
+    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Pin Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('pin', 'Pin:') !!}
+    {!! Form::text('pin', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Active Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('active', 'Active:') !!}

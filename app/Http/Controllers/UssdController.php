@@ -59,14 +59,19 @@ class UssdController extends Controller
                  {
 
                     case "1":
-                        $reponse ="CON Please enter pass pin\n";
+                        $response ="CON Please enter pass pin\n";
                         DB::table('session')->where('sessionId',$sessionId)->update(['level'=>10]);
+                        header('Content-type: text/plain');
+                        echo $response;
 
                         break;
 
                     case "6":
                         $response ="CON Please enter pass pin \n";
                         DB::table('session')->where('sessionId',$sessionId)->update(['level'=>11]);
+                        header('Content-type: text/plain');
+                        echo $response;
+
 
                         break;
 
@@ -140,9 +145,9 @@ class UssdController extends Controller
                         $pin = $userResponse;
                         $correct = DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->exists();
                         if($correct){
-                            DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->updateOrInsert(['active','YES']);
+                            DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->update(['active'=>'YES']);
                             $response ="CON Service Activated\n";
-                            $response = "0. Back \n";
+                            $response .= "0. Back \n";
                             DB::table('session')->where('sessionId',$sessionId)->update(['level'=>1]);
 
 
@@ -160,9 +165,9 @@ class UssdController extends Controller
                         $pin = $userResponse;
                         $correct = DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->exists();
                         if($correct){
-                            DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->updateOrInsert(['active','NO']);
+                            DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->update(['active'=>'NO']);
                             $response ="CON Service De-activated\n";
-                            $response = "0. Back \n";
+                            $response .= "0. Back \n";
                             DB::table('session')->where('sessionId',$sessionId)->update(['level'=>1]);
 
 
@@ -184,7 +189,7 @@ class UssdController extends Controller
                         $plate   = DB::table('rider')->where('id',$riderId)->value('plate');
 
                         if($correct){
-                            DB::table('logs')->where([['plate',$plate],['approved','NO']])->updateOrInsert(['approved','YES']);
+                            DB::table('logs')->where([['plate',$plate],['approved','NO']])->update(['approved'=>'YES']);
                             $response = "END Ride Approved";
 
                         }
@@ -199,7 +204,7 @@ class UssdController extends Controller
 
                     case 13:
                         $plate = $userResponse;
-                        DB::table('report')->insert(['plate'=>$plate,'phoneNumber'=>$phoneNumber]);
+                        DB::table('report')->insert(['plate'=>$plate,'phone'=>$phoneNumber]);
 
                          //Report crime
                          $response = "CON Select Nature of crime.\n";
@@ -221,21 +226,21 @@ class UssdController extends Controller
                         switch ($userResponse){
 
                             case "1":
-                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'MURDER']);
+                                DB::table('report')->where([['phone',$phoneNumber],['category','NULL']])->update(['category'=>'MURDER']);
 
                                 break;
 
                             case "2":
-                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'RAPE']);
+                                DB::table('report')->where([['phone',$phoneNumber],['category','NULL']])->update(['category'=>'RAPE']);
 
                                 break;
 
                             case "3":
-                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'THEFT']);
+                                DB::table('report')->where([['phone',$phoneNumber],['category','NULL']])->update(['category'=>'THEFT']);
                                 break;
 
                             default:
-                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'OTHERS']);
+                                DB::table('report')->where([['phone',$phoneNumber],['category','NULL']])->update(['category'=>'OTHERS']);
                                 break;
 
                         }
@@ -288,28 +293,33 @@ class UssdController extends Controller
                          break;
                      case "3":
                           if($level==1){
-                              //check ride logs
-                              //still gat issues will be solved\
+                                //check ride logs
+                                //still gat issues will be solved\
 
-                             $trips = DB::table('logs')->where('passPhone',$phoneNumber)->exists();
+                                $trips = DB::table('logs')->where([['passPhone',$phoneNumber],['approved','YES']])->exists();
 
-                             $response = "END RIDING HISTORY \n";
-                             if($trips){
-                                $trips = DB::table('logs')->where('passPhone',$phoneNumber)->get();
-                                foreach($trips as $trip){
-                                    $response .= $trip->plate ."  ";
-                                    $response .= $trip->riderphone;
+                                $response = "CON RIDING HISTORY \n";
+                                if($trips){
+                                    $trips = DB::table('logs')->where([['passPhone',$phoneNumber],['approved','YES']])->get();
+                                    foreach($trips as $trip){
+                                        $response .= $trip->plate ."---->";
+                                        $response .= $trip->riderPhone."\n";
+                                    }
+
+                                }
+                                else{
+                                    $response .= "\n No ride history!!!!";
                                 }
 
-                             }
-                             else{
-                                 $reponse .= "No ride history!!!!";
-                             }
+                                $response .="\n 0. Back";
+                                DB::table('session')->where('sessionId',$sessionId)->update(['level'=>1]);
+
+                                header('Content-type: text/plain');
+                                echo $response;
 
 
                              }
-                             header('Content-type: text/plain');
-                             echo $response;
+
 
 
 
@@ -362,7 +372,7 @@ class UssdController extends Controller
                              $phone = DB::table('phone')->where([['active','YES'],['rider',$id]])->value('phone');
 
                              if($phone){
-                                 DB::table('logs')->insert(['passPhone'=>$phoneNumber,'plate'=>$plate,'riderPhone'=>$phone]);
+                                 DB::table('logs')->insert(['passPhone'=>$phoneNumber,'plate'=>$plate,'riderPhone'=>$phone,'approved'=>'NO']);
                                  $response .= "\n Waiting for approval";
                              }
                              else{
@@ -401,21 +411,21 @@ class UssdController extends Controller
                         switch ($userResponse){
 
                             case "1":
-                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'MURDER']);
+                                DB::table('report')->where([['phone',$phoneNumber],['category','NULL']])->update(['category'=>'MURDER']);
 
                                 break;
 
                             case "2":
-                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'RAPE']);
+                                DB::table('report')->where([['phone',$phoneNumber],['category','NULL']])->update(['category'=>'RAPE']);
 
                                 break;
 
                             case "3":
-                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'THEFT']);
+                                DB::table('report')->where([['phone',$phoneNumber],['category','NULL']])->update(['category'=>'THEFT']);
                                 break;
 
                             default:
-                                 DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'OTHERS']);
+                                 DB::table('report')->where([['phone',$phoneNumber],['category','NULL']])->update(['category'=>'OTHERS']);
                                 break;
 
                         }

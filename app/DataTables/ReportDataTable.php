@@ -68,7 +68,6 @@ class ReportDataTable extends DataTable
             'plate',
             'phone',
             'category',
-            'riderId',
             'progress'
         ];
     }
