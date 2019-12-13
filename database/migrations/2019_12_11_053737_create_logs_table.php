@@ -18,6 +18,7 @@ class CreateLogsTable extends Migration
             $table->string('passPhone');
             $table->string('riderPhone');
             $table->string('plate');
+            $table->enum('approved',['YES','NO']);
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });

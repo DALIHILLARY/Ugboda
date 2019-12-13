@@ -48,11 +48,9 @@ class UssdController extends Controller
          $riderId = DB::table('phone')->where('phone',$phoneNumber)->value('rider');
          $user = DB::table('rider')->where('id',$riderId);
 
-         //Check if the user is available (yes)->Serve the menu;
+         //Check if the user is rider (yes)->Serve the menu;
          if($user->exists())
          {
-             //Serve the Services Menu (if the user is fully registered,
-             //level 0 and 1 serve the basic menus, while the rest allow for financial transactions)
 
              if($level==0 || $level==1)
              {
@@ -60,37 +58,200 @@ class UssdController extends Controller
                  switch ($userResponse)
                  {
 
-                     case "1":
+                    case "1":
+                        $reponse ="CON Please enter pass pin\n";
+                        DB::table('session')->where('sessionId',$sessionId)->update(['level'=>10]);
+
+                        break;
+
+                    case "6":
+                        $response ="CON Please enter pass pin \n";
+                        DB::table('session')->where('sessionId',$sessionId)->update(['level'=>11]);
+
+                        break;
+
+                    case "2":
+                        $request = DB::table('logs')->where([['riderPhone',$phoneNumber],['approved','NO']])->exists();
+                        if($request){
+                            $response ="CON Enter PIN to approve";
+                            DB::table('session')->where('sessionId',$sessionId)->update(['level'=>12]);
+
+                        }
+                        else{
+                            $response = " CON No Boda request available\n";
+                            $response .=" 0. Back \n";
+
+                        }
+                        header('Content-type: text/plain');
+                        echo $response;
+
+                        break;
+
+                    case "3":
+                        // crime number plate
+                        $response = "CON please Enter The number plate";
+
+                        //Update sessions to level 11
+                        DB::table('session')->where('sessionId',$sessionId)->update(['level'=>13]);
+
+                        // Print the response onto the page so that our gateway can read it
+                        header('Content-type: text/plain');
+                        echo $response;
+
+                        break;
+
+                    case "4":
+                        //rider details.... be put there soon
 
 
+                        break;
 
+                    case "5":
+                        //boda logs... see that later
 
-                         break;
+                        break;
 
-                      default:
+                    default:
                           //9b. Graduate user to next level & Serve Main Menu
                              DB::table('session')->insert(['sessionId'=> $sessionId , 'phoneNumber'=>$phoneNumber , 'level'=>1]);
 
                              //Serve our services menu
                              $response = "CON BODA MANAGEMNET SYSTEM \n";
-                             $response .= " 1. Accept Ride\n";
-                             $response .= " 2. Report Boda Crime\n";
-                             $response .= " 3. Check My Details\n";
-                             $response .= " 4. Boda Logs\n";
+                             $response .= " 1. Activate Service\n";
+                             $response .= " 2. Accept Ride\n";
+                             $response .= " 3. Report Boda Crime\n";
+                             $response .= " 4. Check My Details\n";
+                             $response .= " 5. Boda Logs\n";
+                             $response .= " 6. De-activate Service";
 
-                               // Print the response onto the page so that our gateway can read it
-                               header('Content-type: text/plain');
-                                echo $response;
-                                break;
+                            // Print the response onto the page so that our gateway can read it
+                            header('Content-type: text/plain');
+                            echo $response;
+                            break;
 
 
                  }
 
              }
+             else{
+                 switch($level){
+
+                    case 10:
+                        $pin = $userResponse;
+                        $correct = DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->exists();
+                        if($correct){
+                            DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->updateOrInsert(['active','YES']);
+                            $response ="CON Service Activated\n";
+                            $response = "0. Back \n";
+                            DB::table('session')->where('sessionId',$sessionId)->update(['level'=>1]);
+
+
+                        }
+                        else{
+                            $response="CON Wrong PIN \n Try again...\n";
+
+                        }
+                        header('Content-type: text/plain');
+                        echo $response;
+
+                        break;
+
+                    case 11:
+                        $pin = $userResponse;
+                        $correct = DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->exists();
+                        if($correct){
+                            DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin]])->updateOrInsert(['active','NO']);
+                            $response ="CON Service De-activated\n";
+                            $response = "0. Back \n";
+                            DB::table('session')->where('sessionId',$sessionId)->update(['level'=>1]);
+
+
+                        }
+                        else{
+                            $response="CON Wrong PIN \n Try again...\n";
+
+                        }
+                        header('Content-type: text/plain');
+                        echo $response;
+
+                        break;
+
+                    case 12:
+                        $pin = $userResponse;
+                        $rider = DB::table('phone')->where([['phone',$phoneNumber],['pin',$pin],['active','YES']]);
+                        $correct = $rider->exists();
+                        $riderId = $rider->value('id');
+                        $plate   = DB::table('rider')->where('id',$riderId)->value('plate');
+
+                        if($correct){
+                            DB::table('logs')->where([['plate',$plate],['approved','NO']])->updateOrInsert(['approved','YES']);
+                            $response = "END Ride Approved";
+
+                        }
+                        else{
+                            $response="CON Wrong PIN \n Try again...\n";
+
+                        }
+                        header('Content-type: text/plain');
+                        echo $response;
+
+                        break;
+
+                    case 13:
+                        $plate = $userResponse;
+                        DB::table('report')->insert(['plate'=>$plate,'phoneNumber'=>$phoneNumber]);
+
+                         //Report crime
+                         $response = "CON Select Nature of crime.\n";
+                         $response .= "1. Murder \n";
+                         $response .= "2. Rape \n";
+                         $response .= "3. Theft \n";
+                         $response .= "4. Others \n";
+                         $response .= "0. Back";
+                           // Print the response onto the page so that our gateway can read it
+                           header('Content-type: text/plain');
+                            echo $response;
+
+                         //Update sessions to level 14
+                         DB::table('session')->where('sessionId',$sessionId)->update(['level'=>14]);
+
+                        break;
+
+                    case 14:
+                        switch ($userResponse){
+
+                            case "1":
+                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'MURDER']);
+
+                                break;
+
+                            case "2":
+                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'RAPE']);
+
+                                break;
+
+                            case "3":
+                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'THEFT']);
+                                break;
+
+                            default:
+                                DB::table('report')->where([["phone"=>$phoneNumber],['category'=>'NULL']])->update(['category'=>'OTHERS']);
+                                break;
+
+                        }
+                        $response = "END Report placed to Authories";
+                        header('Content-type: text/plain');
+                        echo $response;
+                        break;
+
+
+
+
+                 }
+             }
          }
          else{
              //person is a passenger
-
              if($level==0 || $level==1)
              {
                  //Check that the user actually typed something, else demote level and start at home
@@ -198,14 +359,17 @@ class UssdController extends Controller
                              $response = "END Processing Ride ........\n";
 
                              $id = DB::table('rider')->where('plate',$plate)->value('id');
-                             $phone = DB::table('phone')->where([['active','YES'],['rider',2]])->value('phone');
+                             $phone = DB::table('phone')->where([['active','YES'],['rider',$id]])->value('phone');
 
                              if($phone){
                                  DB::table('logs')->insert(['passPhone'=>$phoneNumber,'plate'=>$plate,'riderPhone'=>$phone]);
                                  $response .= "\n Waiting for approval";
                              }
                              else{
-                                 $response .="\n BODA NOT USABLE";
+                                 $response .="\n BODA NOT USABLE\n";
+                                 $response .=" 0. Back";
+                                 DB::table('session')->where('sessionId',$sessionId)->update(['level'=>1]);
+
                              }
 
                         }

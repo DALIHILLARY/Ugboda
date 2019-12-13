@@ -17,6 +17,7 @@ class CreatePhoneTable extends Migration
             $table->bigIncrements('id');
             $table->integer('rider');
             $table->string('phone');
+            $table->string('pin');
             $table->enum('active',['YES','NO']);
             $table->softDeletes('deleted_at');
             $table->timestamps();
