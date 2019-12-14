@@ -346,11 +346,11 @@ class UssdController extends Controller
                      case 10:
                          $plate = $userResponse;
 
-                         $crimes = DB::table('report')->where([['progress','ACTIVE'],['plate',$plate]])->exists();
+                         $crimes = DB::table('report')->where([['progress','NULL'],['plate',$plate]])->exists();
 
                          //check if the boda is involved in crime
                          if($crimes){
-                                $crimes = DB::table('report')->where([['progress','ACTIVE'],['plate',$plate]])->get();
+                                $crimes = DB::table('report')->where([['progress','NULL'],['plate',$plate]])->get();
                                 $riders = DB::table('rider')->where('plate',$plate)->get();
                                 $response = "CON      CRIME REPORT \n\n";
                                 foreach($riders as $rider){
@@ -389,7 +389,7 @@ class UssdController extends Controller
 
                      case 11:
                             $plate = $userResponse;
-                            DB::table('report')->insert(['plate'=>$plate,'phoneNumber'=>$phoneNumber]);
+                            DB::table('report')->insert(['plate'=>$plate,'phone'=>$phoneNumber]);
 
                              //Report crime
                              $response = "CON Select Nature of crime.\n";
