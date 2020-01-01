@@ -8,8 +8,8 @@ use Faker\Generator as Faker;
 $factory->define(Phone::class, function (Faker $faker) {
 
     return [
-        'rider' => $faker->randomDigitNotNull,
-        'phone' => $faker->word,
+        'rider_Id' => $faker->word,
+        'phone_No' => $faker->word,
         'pin' => $faker->word,
         'active' => $faker->word,
         'deleted_at' => $faker->date('Y-m-d H:i:s'),

@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class RiderRepository
  * @package App\Repositories
- * @version December 13, 2019, 5:20 pm UTC
+ * @version December 31, 2019, 2:48 pm UTC
 */
 
 class RiderRepository extends BaseRepository
@@ -19,8 +19,12 @@ class RiderRepository extends BaseRepository
     protected $fieldSearchable = [
         'FirstName',
         'LastName',
-        'District',
-        'Plate'
+        'gender',
+        'NIN',
+        'Next of Kin',
+        'District_Id',
+        'Region_Id',
+        'plate_id'
     ];
 
     /**

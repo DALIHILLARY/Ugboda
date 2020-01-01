@@ -1,13 +1,13 @@
-<!-- Rider Field -->
+<!-- Rider Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('rider', 'Rider:') !!}
-    {!! Form::number('rider', null, ['class' => 'form-control']) !!}
+    {!! Form::label('rider_Id', 'Rider Id:') !!}
+    {!! Form::number('rider_Id', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Phone Field -->
+<!-- Phone No Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('phone', 'Phone:') !!}
-    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+    {!! Form::label('phone_No', 'Phone No:') !!}
+    {!! Form::text('phone_No', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Pin Field -->

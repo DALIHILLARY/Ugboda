@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class LogRepository
  * @package App\Repositories
- * @version December 13, 2019, 5:20 pm UTC
+ * @version December 31, 2019, 4:22 pm UTC
 */
 
 class LogRepository extends BaseRepository
@@ -19,8 +19,9 @@ class LogRepository extends BaseRepository
     protected $fieldSearchable = [
         'passPhone',
         'riderPhone',
-        'plate',
-        'approved'
+        'plate_id',
+        'approved',
+        'location'
     ];
 
     /**

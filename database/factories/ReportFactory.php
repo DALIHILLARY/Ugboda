@@ -8,10 +8,12 @@ use Faker\Generator as Faker;
 $factory->define(Report::class, function (Faker $faker) {
 
     return [
-        'plate' => $faker->word,
+        'rider_Id' => $faker->word,
+        'plate_id' => $faker->word,
         'phone' => $faker->word,
-        'category' => $faker->word,
+        'catergory' => $faker->word,
         'progress' => $faker->word,
+        'location' => $faker->word,
         'deleted_at' => $faker->date('Y-m-d H:i:s'),
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s')

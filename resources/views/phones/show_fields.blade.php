@@ -1,13 +1,13 @@
-<!-- Rider Field -->
+<!-- Rider Id Field -->
 <div class="form-group">
-    {!! Form::label('rider', 'Rider:') !!}
-    <p>{{ $phone->rider }}</p>
+    {!! Form::label('rider_Id', 'Rider Id:') !!}
+    <p>{{ $phone->rider_Id }}</p>
 </div>
 
-<!-- Phone Field -->
+<!-- Phone No Field -->
 <div class="form-group">
-    {!! Form::label('phone', 'Phone:') !!}
-    <p>{{ $phone->phone }}</p>
+    {!! Form::label('phone_No', 'Phone No:') !!}
+    <p>{{ $phone->phone_No }}</p>
 </div>
 
 <!-- Pin Field -->

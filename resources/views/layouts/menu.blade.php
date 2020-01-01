@@ -14,3 +14,11 @@
     <a href="{{ route('reports.index') }}"><i class="fa fa-edit"></i><span>Reports</span></a>
 </li>
 
+<li class="{{ Request::is('districts*') ? 'active' : '' }}">
+    <a href="{{ route('districts.index') }}"><i class="fa fa-edit"></i><span>Districts</span></a>
+</li>
+
+<li class="{{ Request::is('bodas*') ? 'active' : '' }}">
+    <a href="{{ route('bodas.index') }}"><i class="fa fa-edit"></i><span>Bodas</span></a>
+</li>
+

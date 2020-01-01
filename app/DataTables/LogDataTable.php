@@ -67,8 +67,9 @@ class LogDataTable extends DataTable
         return [
             'passPhone',
             'riderPhone',
-            'plate',
-            'approved'
+            'plate_id',
+            'approved',
+            'location'
         ];
     }
 

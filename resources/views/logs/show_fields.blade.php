@@ -10,15 +10,21 @@
     <p>{{ $log->riderPhone }}</p>
 </div>
 
-<!-- Plate Field -->
+<!-- Plate Id Field -->
 <div class="form-group">
-    {!! Form::label('plate', 'Plate:') !!}
-    <p>{{ $log->plate }}</p>
+    {!! Form::label('plate_id', 'Plate Id:') !!}
+    <p>{{ $log->plate_id }}</p>
 </div>
 
 <!-- Approved Field -->
 <div class="form-group">
     {!! Form::label('approved', 'Approved:') !!}
     <p>{{ $log->approved }}</p>
+</div>
+
+<!-- Location Field -->
+<div class="form-group">
+    {!! Form::label('location', 'Location:') !!}
+    <p>{{ $log->location }}</p>
 </div>
 

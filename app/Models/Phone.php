@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Phone
  * @package App\Models
- * @version December 13, 2019, 5:22 pm UTC
+ * @version December 30, 2019, 5:46 am UTC
  *
- * @property integer rider
- * @property string phone
+ * @property \App\Models\Rider rider
+ * @property integer rider_Id
+ * @property string phone_No
  * @property string pin
  * @property string active
  */
@@ -30,8 +31,8 @@ class Phone extends Model
 
 
     public $fillable = [
-        'rider',
-        'phone',
+        'rider_Id',
+        'phone_No',
         'pin',
         'active'
     ];
@@ -43,8 +44,8 @@ class Phone extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'rider' => 'integer',
-        'phone' => 'string',
+        'rider_Id' => 'integer',
+        'phone_No' => 'string',
         'pin' => 'string',
         'active' => 'string'
     ];
@@ -55,11 +56,17 @@ class Phone extends Model
      * @var array
      */
     public static $rules = [
-        'rider' => 'required',
-        'phone' => 'required',
+        'rider_Id' => 'required',
+        'phone_No' => 'required',
         'pin' => 'required',
         'active' => 'required'
     ];
 
-    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function rider()
+    {
+        return $this->belongsTo(\App\Models\Rider::class, 'rider_Id');
+    }
 }

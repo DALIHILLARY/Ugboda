@@ -10,8 +10,9 @@ $factory->define(Log::class, function (Faker $faker) {
     return [
         'passPhone' => $faker->word,
         'riderPhone' => $faker->word,
-        'plate' => $faker->word,
+        'plate_id' => $faker->word,
         'approved' => $faker->word,
+        'location' => $faker->word,
         'deleted_at' => $faker->date('Y-m-d H:i:s'),
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s')

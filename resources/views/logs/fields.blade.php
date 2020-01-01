@@ -10,16 +10,22 @@
     {!! Form::text('riderPhone', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Plate Field -->
+<!-- Plate Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('plate', 'Plate:') !!}
-    {!! Form::text('plate', null, ['class' => 'form-control']) !!}
+    {!! Form::label('plate_id', 'Plate Id:') !!}
+    {!! Form::text('plate_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Approved Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('approved', 'Approved:') !!}
     {!! Form::text('approved', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Location Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('location', 'Location:') !!}
+    {!! Form::text('location', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

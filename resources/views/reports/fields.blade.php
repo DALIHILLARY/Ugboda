@@ -1,7 +1,13 @@
-<!-- Plate Field -->
+<!-- Rider Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('plate', 'Plate:') !!}
-    {!! Form::text('plate', null, ['class' => 'form-control']) !!}
+    {!! Form::label('rider_Id', 'Rider Id:') !!}
+    {!! Form::number('rider_Id', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Plate Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('plate_id', 'Plate Id:') !!}
+    {!! Form::text('plate_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Phone Field -->
@@ -10,16 +16,22 @@
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Category Field -->
+<!-- Catergory Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('category', 'Category:') !!}
-    {!! Form::text('category', null, ['class' => 'form-control']) !!}
+    {!! Form::label('catergory', 'Catergory:') !!}
+    {!! Form::text('catergory', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Progress Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('progress', 'Progress:') !!}
     {!! Form::text('progress', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Location Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('location', 'Location:') !!}
+    {!! Form::text('location', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

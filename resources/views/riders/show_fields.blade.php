@@ -10,15 +10,39 @@
     <p>{{ $rider->LastName }}</p>
 </div>
 
-<!-- District Field -->
+<!-- Gender Field -->
 <div class="form-group">
-    {!! Form::label('District', 'District:') !!}
-    <p>{{ $rider->District }}</p>
+    {!! Form::label('gender', 'Gender:') !!}
+    <p>{{ $rider->gender }}</p>
 </div>
 
-<!-- Plate Field -->
+<!-- Nin Field -->
 <div class="form-group">
-    {!! Form::label('Plate', 'Plate:') !!}
-    <p>{{ $rider->Plate }}</p>
+    {!! Form::label('NIN', 'Nin:') !!}
+    <p>{{ $rider->NIN }}</p>
+</div>
+
+<!-- Next Of Kin Field -->
+<div class="form-group">
+    {!! Form::label('Next of Kin', 'Next Of Kin:') !!}
+    <p>{{ $rider->Next of Kin }}</p>
+</div>
+
+<!-- District Id Field -->
+<div class="form-group">
+    {!! Form::label('District_Id', 'District Id:') !!}
+    <p>{{ $rider->District_Id }}</p>
+</div>
+
+<!-- Region Id Field -->
+<div class="form-group">
+    {!! Form::label('Region_Id', 'Region Id:') !!}
+    <p>{{ $rider->Region_Id }}</p>
+</div>
+
+<!-- Plate Id Field -->
+<div class="form-group">
+    {!! Form::label('plate_id', 'Plate Id:') !!}
+    <p>{{ $rider->plate_id }}</p>
 </div>
 

@@ -12,7 +12,19 @@
         "inView": false
     },
     {
-        "name": "plate",
+        "name": "rider_Id",
+        "dbType": "bigInteger,false,true",
+        "htmlType": null,
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "plate_id",
         "dbType": "string,255",
         "htmlType": "text",
         "validations": "required",
@@ -36,7 +48,7 @@
         "inView": true
     },
     {
-        "name": "category",
+        "name": "catergory",
         "dbType": "string",
         "htmlType": "text",
         "validations": "required",
@@ -50,6 +62,18 @@
     {
         "name": "progress",
         "dbType": "string",
+        "htmlType": "text",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "location",
+        "dbType": "string,255",
         "htmlType": "text",
         "validations": "required",
         "searchable": true,
@@ -94,5 +118,9 @@
         "inForm": false,
         "inIndex": false,
         "inView": false
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Rider,rider_Id"
     }
 ]

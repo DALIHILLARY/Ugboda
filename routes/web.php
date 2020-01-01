@@ -25,19 +25,11 @@ Route::resource('riders', 'RiderController');
 
 Route::resource('phones', 'PhoneController');
 
-Route::resource('menus', 'MenuController');
-
-Route::resource('submenus', 'SubmenuController');
-
 Route::resource('reports', 'ReportController');
 
 Route::resource('logs', 'LogController');
 
-Auth::routes();
+Route::resource('districts', 'DistrictController');
 
-Route::get('/home', 'HomeController@index');
+Route::resource('bodas', 'BodaController');
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');

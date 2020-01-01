@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class ReportRepository
  * @package App\Repositories
- * @version December 13, 2019, 5:22 pm UTC
+ * @version December 31, 2019, 3:06 pm UTC
 */
 
 class ReportRepository extends BaseRepository
@@ -17,10 +17,12 @@ class ReportRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'plate',
+        'rider_Id',
+        'plate_id',
         'phone',
-        'category',
-        'progress'
+        'catergory',
+        'progress',
+        'location'
     ];
 
     /**

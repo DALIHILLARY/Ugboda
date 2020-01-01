@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Report
  * @package App\Models
- * @version December 13, 2019, 5:22 pm UTC
+ * @version December 31, 2019, 3:06 pm UTC
  *
- * @property string plate
+ * @property \App\Models\Rider rider
+ * @property integer rider_Id
+ * @property string plate_id
  * @property string phone
- * @property string category
+ * @property string catergory
  * @property string progress
+ * @property string location
  */
 class Report extends Model
 {
@@ -30,10 +33,12 @@ class Report extends Model
 
 
     public $fillable = [
-        'plate',
+        'rider_Id',
+        'plate_id',
         'phone',
-        'category',
-        'progress'
+        'catergory',
+        'progress',
+        'location'
     ];
 
     /**
@@ -43,10 +48,12 @@ class Report extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'plate' => 'string',
+        'rider_Id' => 'integer',
+        'plate_id' => 'string',
         'phone' => 'string',
-        'category' => 'string',
-        'progress' => 'string'
+        'catergory' => 'string',
+        'progress' => 'string',
+        'location' => 'string'
     ];
 
     /**
@@ -55,11 +62,19 @@ class Report extends Model
      * @var array
      */
     public static $rules = [
-        'plate' => 'required',
+        'rider_Id' => 'required',
+        'plate_id' => 'required',
         'phone' => 'required',
-        'category' => 'required',
-        'progress' => 'required'
+        'catergory' => 'required',
+        'progress' => 'required',
+        'location' => 'required'
     ];
 
-    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function rider()
+    {
+        return $this->belongsTo(\App\Models\Rider::class, 'rider_Id');
+    }
 }

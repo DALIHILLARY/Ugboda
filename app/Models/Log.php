@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Log
  * @package App\Models
- * @version December 13, 2019, 5:20 pm UTC
+ * @version December 31, 2019, 4:22 pm UTC
  *
  * @property string passPhone
  * @property string riderPhone
- * @property string plate
+ * @property string plate_id
  * @property string approved
+ * @property string location
  */
 class Log extends Model
 {
@@ -32,8 +33,9 @@ class Log extends Model
     public $fillable = [
         'passPhone',
         'riderPhone',
-        'plate',
-        'approved'
+        'plate_id',
+        'approved',
+        'location'
     ];
 
     /**
@@ -45,8 +47,9 @@ class Log extends Model
         'id' => 'integer',
         'passPhone' => 'string',
         'riderPhone' => 'string',
-        'plate' => 'string',
-        'approved' => 'string'
+        'plate_id' => 'string',
+        'approved' => 'string',
+        'location' => 'string'
     ];
 
     /**
@@ -57,8 +60,9 @@ class Log extends Model
     public static $rules = [
         'passPhone' => 'required',
         'riderPhone' => 'required',
-        'plate' => 'required',
-        'approved' => 'required'
+        'plate_id' => 'required',
+        'approved' => 'required',
+        'location' => 'required'
     ];
 
     

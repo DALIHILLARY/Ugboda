@@ -65,10 +65,12 @@ class ReportDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'plate',
+            'rider_Id',
+            'plate_id',
             'phone',
-            'category',
-            'progress'
+            'catergory',
+            'progress',
+            'location'
         ];
     }
 

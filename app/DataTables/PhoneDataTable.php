@@ -65,8 +65,8 @@ class PhoneDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'rider',
-            'phone',
+            'rider_Id',
+            'phone_No',
             'pin',
             'active'
         ];

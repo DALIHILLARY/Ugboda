@@ -12,8 +12,8 @@
         "inView": false
     },
     {
-        "name": "rider",
-        "dbType": "integer,false",
+        "name": "rider_Id",
+        "dbType": "bigInteger,false,true",
         "htmlType": null,
         "validations": "required",
         "searchable": true,
@@ -24,7 +24,7 @@
         "inView": true
     },
     {
-        "name": "phone",
+        "name": "phone_No",
         "dbType": "string,255",
         "htmlType": "text",
         "validations": "required",
@@ -94,5 +94,9 @@
         "inForm": false,
         "inIndex": false,
         "inView": false
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Rider,rider_Id"
     }
 ]
