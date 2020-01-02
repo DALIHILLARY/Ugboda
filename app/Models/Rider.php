@@ -8,20 +8,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Rider
  * @package App\Models
- * @version December 31, 2019, 2:48 pm UTC
+ * @version January 2, 2020, 5:42 pm UTC
  *
- * @property \App\Models\District district
- * @property \App\Models\Region region
  * @property \Illuminate\Database\Eloquent\Collection phones
  * @property \Illuminate\Database\Eloquent\Collection reports
  * @property string FirstName
  * @property string LastName
  * @property string gender
  * @property string NIN
- * @property string Next of Kin
- * @property integer District_Id
- * @property integer Region_Id
- * @property string plate_id
+ * @property string District_Id
+ * @property string plate_Id
  */
 class Rider extends Model
 {
@@ -42,10 +38,8 @@ class Rider extends Model
         'LastName',
         'gender',
         'NIN',
-        'Next of Kin',
         'District_Id',
-        'Region_Id',
-        'plate_id'
+        'plate_Id'
     ];
 
     /**
@@ -59,10 +53,8 @@ class Rider extends Model
         'LastName' => 'string',
         'gender' => 'string',
         'NIN' => 'string',
-        'Next of Kin' => 'string',
-        'District_Id' => 'integer',
-        'Region_Id' => 'integer',
-        'plate_id' => 'string'
+        'District_Id' => 'string',
+        'plate_Id' => 'string'
     ];
 
     /**
@@ -75,27 +67,9 @@ class Rider extends Model
         'LastName' => 'required',
         'gender' => 'required',
         'NIN' => 'required',
-        'Next of Kin' => 'required',
         'District_Id' => 'required',
-        'Region_Id' => 'required',
-        'plate_id' => 'required'
+        'plate_Id' => 'required'
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function district()
-    {
-        return $this->belongsTo(\App\Models\District::class, 'District_Id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function region()
-    {
-        return $this->belongsTo(\App\Models\Region::class, 'Region_Id');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

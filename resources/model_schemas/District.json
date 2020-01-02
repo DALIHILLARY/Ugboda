@@ -12,6 +12,18 @@
         "inView": false
     },
     {
+        "name": "code",
+        "dbType": "string,255",
+        "htmlType": "text",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
         "name": "name",
         "dbType": "string,255",
         "htmlType": "text",
@@ -48,15 +60,15 @@
         "inView": false
     },
     {
-        "type": "relation",
-        "relation": "1tm,Region,District_Id"
-    },
-    {
-        "type": "relation",
-        "relation": "1tm,Rider,District_Id"
-    },
-    {
-        "type": "relation",
-        "relation": "1tm,Stagedetail,District_Id"
+        "name": "deleted_at",
+        "dbType": "datetime:nullable",
+        "htmlType": "date",
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
     }
 ]

@@ -16,12 +16,6 @@
     {!! Form::text('LastName', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Phoneno Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('PhoneNo', 'Phoneno:') !!}
-    {!! Form::text('PhoneNo', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Nin Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('NIN', 'Nin:') !!}

@@ -24,7 +24,7 @@
         "inView": true
     },
     {
-        "name": "plate_id",
+        "name": "plate_Id",
         "dbType": "string,255",
         "htmlType": "text",
         "validations": "required",

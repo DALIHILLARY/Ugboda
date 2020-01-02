@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class PhoneRepository
  * @package App\Repositories
- * @version December 30, 2019, 5:46 am UTC
+ * @version January 2, 2020, 5:43 pm UTC
 */
 
 class PhoneRepository extends BaseRepository
@@ -18,6 +18,7 @@ class PhoneRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'rider_Id',
+        'boda_Id',
         'phone_No',
         'pin',
         'active'

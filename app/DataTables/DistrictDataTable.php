@@ -65,6 +65,7 @@ class DistrictDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            'code',
             'name'
         ];
     }

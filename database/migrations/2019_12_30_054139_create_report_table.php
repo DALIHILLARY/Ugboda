@@ -17,12 +17,12 @@ class CreateReportTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('rider_Id');
             $table->foreign('rider_Id')->references('id')->on('rider');
-            $table->string('plate_id');
-            $table->foreign('plate_id')->references('plate')->on('boda_details');
+            $table->string('plate_Id');
+            $table->foreign('plate_Id')->references('plate')->on('boda_details');
             $table->string('phone');
-            $table->enum('catergory',['THEFT','MURDER','OTHERS','RAPE','NULL'])->default('NULL');
+            $table->enum('category',['THEFT','MURDER','OTHERS','RAPE','NULL'])->default('NULL');
             $table->enum('progress',['ACTIVE','SOLVED','NULL'])->default('NULL');
-            $table->string('location');
+            $table->string('location')->default('NULL');
             $table->softDeletes('deleted_at');
 
             $table->timestamps();

@@ -4,6 +4,12 @@
     {!! Form::number('rider_Id', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Boda Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('boda_Id', 'Boda Id:') !!}
+    {!! Form::text('boda_Id', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Phone No Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('phone_No', 'Phone No:') !!}

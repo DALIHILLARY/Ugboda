@@ -69,10 +69,8 @@ class RiderDataTable extends DataTable
             'LastName',
             'gender',
             'NIN',
-            'Next of Kin',
             'District_Id',
-            'Region_Id',
-            'plate_id'
+            'plate_Id'
         ];
     }
 

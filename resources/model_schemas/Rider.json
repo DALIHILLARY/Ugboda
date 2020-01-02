@@ -60,7 +60,7 @@
         "inView": true
     },
     {
-        "name": "Next of Kin",
+        "name": "District_Id",
         "dbType": "string,255",
         "htmlType": "text",
         "validations": "required",
@@ -72,31 +72,7 @@
         "inView": true
     },
     {
-        "name": "District_Id",
-        "dbType": "bigInteger,false,true",
-        "htmlType": null,
-        "validations": "required",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "Region_Id",
-        "dbType": "bigInteger,false,true",
-        "htmlType": null,
-        "validations": "required",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "plate_id",
+        "name": "plate_Id",
         "dbType": "string,255",
         "htmlType": "text",
         "validations": "required",
@@ -142,14 +118,6 @@
         "inForm": false,
         "inIndex": false,
         "inView": false
-    },
-    {
-        "type": "relation",
-        "relation": "mt1,District,District_Id"
-    },
-    {
-        "type": "relation",
-        "relation": "mt1,Region,Region_Id"
     },
     {
         "type": "relation",

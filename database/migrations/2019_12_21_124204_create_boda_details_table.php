@@ -16,9 +16,8 @@ class CreateBodaDetailsTable extends Migration
         Schema::create('boda_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('plate')->unique();
-            $table->string('FirstName')->default('null');
-            $table->string('LastName')->default('null');
-            $table->string('PhoneNo')->default('null');
+            $table->string('FirstName');
+            $table->string('LastName');
             $table->string('NIN');
             $table->softDeletes('deleted_at');
 

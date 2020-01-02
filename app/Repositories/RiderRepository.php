@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class RiderRepository
  * @package App\Repositories
- * @version December 31, 2019, 2:48 pm UTC
+ * @version January 2, 2020, 5:42 pm UTC
 */
 
 class RiderRepository extends BaseRepository
@@ -21,10 +21,8 @@ class RiderRepository extends BaseRepository
         'LastName',
         'gender',
         'NIN',
-        'Next of Kin',
         'District_Id',
-        'Region_Id',
-        'plate_id'
+        'plate_Id'
     ];
 
     /**

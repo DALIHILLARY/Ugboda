@@ -6,8 +6,8 @@
 
 <!-- Plate Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('plate_id', 'Plate Id:') !!}
-    {!! Form::text('plate_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('plate_Id', 'Plate Id:') !!}
+    {!! Form::text('plate_Id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Phone Field -->

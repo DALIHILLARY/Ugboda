@@ -48,18 +48,6 @@
         "inView": true
     },
     {
-        "name": "PhoneNo",
-        "dbType": "string,255",
-        "htmlType": "text",
-        "validations": "required",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
         "name": "NIN",
         "dbType": "string,255",
         "htmlType": "text",

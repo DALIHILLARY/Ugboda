@@ -66,7 +66,7 @@ class ReportDataTable extends DataTable
     {
         return [
             'rider_Id',
-            'plate_id',
+            'plate_Id',
             'phone',
             'catergory',
             'progress',

@@ -17,10 +17,10 @@ class CreateLogsTable extends Migration
             $table->bigIncrements('id');
             $table->string('passPhone');
             $table->string('riderPhone');
-            $table->string('plate_id');
-            $table->foreign('plate_id')->references('plate')->on('boda_details');
+            $table->string('plate_Id');
+            $table->foreign('plate_Id')->references('plate')->on('boda_details');
             $table->enum('approved',['YES','NO']);
-            $table->string('location');
+            $table->string('location')->default('NULL');
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });

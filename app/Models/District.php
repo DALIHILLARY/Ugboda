@@ -8,11 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class District
  * @package App\Models
- * @version December 30, 2019, 5:47 am UTC
+ * @version January 2, 2020, 5:43 pm UTC
  *
- * @property \Illuminate\Database\Eloquent\Collection regions
- * @property \Illuminate\Database\Eloquent\Collection riders
- * @property \Illuminate\Database\Eloquent\Collection stagedetails
+ * @property string code
  * @property string name
  */
 class District extends Model
@@ -30,6 +28,7 @@ class District extends Model
 
 
     public $fillable = [
+        'code',
         'name'
     ];
 
@@ -40,6 +39,7 @@ class District extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'code' => 'string',
         'name' => 'string'
     ];
 
@@ -49,30 +49,9 @@ class District extends Model
      * @var array
      */
     public static $rules = [
+        'code' => 'required',
         'name' => 'required'
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function regions()
-    {
-        return $this->hasMany(\App\Models\Region::class, 'District_Id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function riders()
-    {
-        return $this->hasMany(\App\Models\Rider::class, 'District_Id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function stagedetails()
-    {
-        return $this->hasMany(\App\Models\Stagedetail::class, 'District_Id');
-    }
+    
 }

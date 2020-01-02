@@ -6,8 +6,8 @@
 
 <!-- Plate Id Field -->
 <div class="form-group">
-    {!! Form::label('plate_id', 'Plate Id:') !!}
-    <p>{{ $report->plate_id }}</p>
+    {!! Form::label('plate_Id', 'Plate Id:') !!}
+    <p>{{ $report->plate_Id }}</p>
 </div>
 
 <!-- Phone Field -->

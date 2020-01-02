@@ -10,7 +10,7 @@ $factory->define(Log::class, function (Faker $faker) {
     return [
         'passPhone' => $faker->word,
         'riderPhone' => $faker->word,
-        'plate_id' => $faker->word,
+        'plate_Id' => $faker->word,
         'approved' => $faker->word,
         'location' => $faker->word,
         'deleted_at' => $faker->date('Y-m-d H:i:s'),

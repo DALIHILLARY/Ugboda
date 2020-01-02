@@ -4,6 +4,12 @@
     <p>{{ $phone->rider_Id }}</p>
 </div>
 
+<!-- Boda Id Field -->
+<div class="form-group">
+    {!! Form::label('boda_Id', 'Boda Id:') !!}
+    <p>{{ $phone->boda_Id }}</p>
+</div>
+
 <!-- Phone No Field -->
 <div class="form-group">
     {!! Form::label('phone_No', 'Phone No:') !!}

@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Phone
  * @package App\Models
- * @version December 30, 2019, 5:46 am UTC
+ * @version January 2, 2020, 5:43 pm UTC
  *
  * @property \App\Models\Rider rider
  * @property integer rider_Id
+ * @property string boda_Id
  * @property string phone_No
  * @property string pin
  * @property string active
@@ -32,6 +33,7 @@ class Phone extends Model
 
     public $fillable = [
         'rider_Id',
+        'boda_Id',
         'phone_No',
         'pin',
         'active'
@@ -45,6 +47,7 @@ class Phone extends Model
     protected $casts = [
         'id' => 'integer',
         'rider_Id' => 'integer',
+        'boda_Id' => 'string',
         'phone_No' => 'string',
         'pin' => 'string',
         'active' => 'string'
@@ -57,6 +60,7 @@ class Phone extends Model
      */
     public static $rules = [
         'rider_Id' => 'required',
+        'boda_Id' => 'required',
         'phone_No' => 'required',
         'pin' => 'required',
         'active' => 'required'

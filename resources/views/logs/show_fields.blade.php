@@ -12,8 +12,8 @@
 
 <!-- Plate Id Field -->
 <div class="form-group">
-    {!! Form::label('plate_id', 'Plate Id:') !!}
-    <p>{{ $log->plate_id }}</p>
+    {!! Form::label('plate_Id', 'Plate Id:') !!}
+    <p>{{ $log->plate_Id }}</p>
 </div>
 
 <!-- Approved Field -->

@@ -11,7 +11,6 @@ $factory->define(Boda::class, function (Faker $faker) {
         'plate' => $faker->word,
         'FirstName' => $faker->word,
         'LastName' => $faker->word,
-        'PhoneNo' => $faker->word,
         'NIN' => $faker->word,
         'deleted_at' => $faker->date('Y-m-d H:i:s'),
         'created_at' => $faker->date('Y-m-d H:i:s'),

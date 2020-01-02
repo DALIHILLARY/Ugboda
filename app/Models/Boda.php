@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Boda
  * @package App\Models
- * @version December 31, 2019, 6:05 pm UTC
+ * @version January 2, 2020, 5:44 pm UTC
  *
  * @property string plate
  * @property string FirstName
  * @property string LastName
- * @property string PhoneNo
  * @property string NIN
  */
 class Boda extends Model
@@ -34,7 +33,6 @@ class Boda extends Model
         'plate',
         'FirstName',
         'LastName',
-        'PhoneNo',
         'NIN'
     ];
 
@@ -48,7 +46,6 @@ class Boda extends Model
         'plate' => 'string',
         'FirstName' => 'string',
         'LastName' => 'string',
-        'PhoneNo' => 'string',
         'NIN' => 'string'
     ];
 
@@ -61,7 +58,6 @@ class Boda extends Model
         'plate' => 'required',
         'FirstName' => 'required',
         'LastName' => 'required',
-        'PhoneNo' => 'required',
         'NIN' => 'required'
     ];
 

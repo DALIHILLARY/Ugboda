@@ -16,12 +16,6 @@
     <p>{{ $boda->LastName }}</p>
 </div>
 
-<!-- Phoneno Field -->
-<div class="form-group">
-    {!! Form::label('PhoneNo', 'Phoneno:') !!}
-    <p>{{ $boda->PhoneNo }}</p>
-</div>
-
 <!-- Nin Field -->
 <div class="form-group">
     {!! Form::label('NIN', 'Nin:') !!}

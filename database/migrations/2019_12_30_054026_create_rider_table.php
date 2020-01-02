@@ -19,11 +19,10 @@ class CreateRiderTable extends Migration
             $table->string('LastName');
             $table->enum('gender',['F','M']);
             $table->string('NIN');
-            $table->string('Next of Kin');
-            $table->unsignedBigInteger('District_Id');
-            $table->foreign('District_Id')->references('id')->on('districts');
-            $table->string('plate_id');
-            $table->foreign('plate_id')->references('plate')->on('boda_details');
+            $table->string('District_Id');
+            $table->foreign('District_Id')->references('code')->on('districts');
+            $table->string('plate_Id');
+            $table->foreign('plate_Id')->references('plate')->on('boda_details');
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });

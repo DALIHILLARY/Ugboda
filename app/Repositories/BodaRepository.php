@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class BodaRepository
  * @package App\Repositories
- * @version December 31, 2019, 6:05 pm UTC
+ * @version January 2, 2020, 5:44 pm UTC
 */
 
 class BodaRepository extends BaseRepository
@@ -20,7 +20,6 @@ class BodaRepository extends BaseRepository
         'plate',
         'FirstName',
         'LastName',
-        'PhoneNo',
         'NIN'
     ];
 

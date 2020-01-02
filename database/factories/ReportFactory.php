@@ -9,7 +9,7 @@ $factory->define(Report::class, function (Faker $faker) {
 
     return [
         'rider_Id' => $faker->word,
-        'plate_id' => $faker->word,
+        'plate_Id' => $faker->word,
         'phone' => $faker->word,
         'catergory' => $faker->word,
         'progress' => $faker->word,

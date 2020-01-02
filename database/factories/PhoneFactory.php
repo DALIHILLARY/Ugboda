@@ -9,6 +9,7 @@ $factory->define(Phone::class, function (Faker $faker) {
 
     return [
         'rider_Id' => $faker->word,
+        'boda_Id' => $faker->word,
         'phone_No' => $faker->word,
         'pin' => $faker->word,
         'active' => $faker->word,

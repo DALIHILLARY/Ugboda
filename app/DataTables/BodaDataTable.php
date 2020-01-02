@@ -68,7 +68,6 @@ class BodaDataTable extends DataTable
             'plate',
             'FirstName',
             'LastName',
-            'PhoneNo',
             'NIN'
         ];
     }

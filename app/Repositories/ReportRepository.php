@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class ReportRepository
  * @package App\Repositories
- * @version December 31, 2019, 3:06 pm UTC
+ * @version January 2, 2020, 5:45 pm UTC
 */
 
 class ReportRepository extends BaseRepository
@@ -18,7 +18,7 @@ class ReportRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'rider_Id',
-        'plate_id',
+        'plate_Id',
         'phone',
         'catergory',
         'progress',

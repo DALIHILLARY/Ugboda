@@ -66,6 +66,7 @@ class PhoneDataTable extends DataTable
     {
         return [
             'rider_Id',
+            'boda_Id',
             'phone_No',
             'pin',
             'active'
