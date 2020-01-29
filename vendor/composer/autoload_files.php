@@ -86,4 +86,5 @@ return array(
     'b6ec61354e97f32c0ae683041c78392a' => $vendorDir . '/scrivo/highlight.php/HighlightUtilities/functions.php',
     'ed962a97bd972bc82007176b647d4e36' => $vendorDir . '/facade/ignition/src/helpers.php',
     'a28599dc506da421718fad75955a4b9d' => $vendorDir . '/infyomlabs/laravel-generator/src/helpers.php',
+    '1e298922c3e2134d42dcdb03e6d5f55a' => $vendorDir . '/torann/geoip/src/helpers.php',
 );

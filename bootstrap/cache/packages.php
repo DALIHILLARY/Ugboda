@@ -18,6 +18,13 @@
       0 => 'Bavix\\Leaflet\\LeafletServiceProvider',
     ),
   ),
+  'consoletvs/charts' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'ConsoleTVs\\Charts\\ChartsServiceProvider',
+    ),
+  ),
   'encore/laravel-admin' => 
   array (
     'providers' => 
@@ -121,6 +128,17 @@
     'providers' => 
     array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    ),
+  ),
+  'torann/geoip' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Torann\\GeoIP\\GeoIPServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'GeoIP' => 'Torann\\GeoIP\\Facades\\GeoIP',
     ),
   ),
   'yajra/laravel-datatables-buttons' => 

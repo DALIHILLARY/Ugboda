@@ -16,10 +16,10 @@
     <p>{{ $report->phone }}</p>
 </div>
 
-<!-- Catergory Field -->
+<!-- Category Field -->
 <div class="form-group">
-    {!! Form::label('catergory', 'Catergory:') !!}
-    <p>{{ $report->catergory }}</p>
+    {!! Form::label('category', 'Category:') !!}
+    <p>{{ $report->category }}</p>
 </div>
 
 <!-- Progress Field -->

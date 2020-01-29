@@ -68,7 +68,7 @@ class ReportDataTable extends DataTable
             'rider_Id',
             'plate_Id',
             'phone',
-            'catergory',
+            'category',
             'progress',
             'location'
         ];

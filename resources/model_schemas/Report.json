@@ -48,7 +48,7 @@
         "inView": true
     },
     {
-        "name": "catergory",
+        "name": "category",
         "dbType": "string",
         "htmlType": "text",
         "validations": "required",

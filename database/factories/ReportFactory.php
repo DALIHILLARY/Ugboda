@@ -11,7 +11,7 @@ $factory->define(Report::class, function (Faker $faker) {
         'rider_Id' => $faker->word,
         'plate_Id' => $faker->word,
         'phone' => $faker->word,
-        'catergory' => $faker->word,
+        'category' => $faker->word,
         'progress' => $faker->word,
         'location' => $faker->word,
         'deleted_at' => $faker->date('Y-m-d H:i:s'),

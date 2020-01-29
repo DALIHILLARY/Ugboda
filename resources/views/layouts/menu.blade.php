@@ -22,3 +22,7 @@
     <a href="{{ route('bodas.index') }}"><i class="fa fa-edit"></i><span>Bodas</span></a>
 </li>
 
+<li class="{{ Request::is('charts*') ? 'active' : '' }}">
+    <a href="{{ route('charts.index') }}"><i class="fa fa-edit"></i><span>Statitics</span></a>
+</li>
+

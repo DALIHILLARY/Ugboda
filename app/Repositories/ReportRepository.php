@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class ReportRepository
  * @package App\Repositories
- * @version January 2, 2020, 5:45 pm UTC
+ * @version January 2, 2020, 9:44 pm UTC
 */
 
 class ReportRepository extends BaseRepository
@@ -20,7 +20,7 @@ class ReportRepository extends BaseRepository
         'rider_Id',
         'plate_Id',
         'phone',
-        'catergory',
+        'category',
         'progress',
         'location'
     ];

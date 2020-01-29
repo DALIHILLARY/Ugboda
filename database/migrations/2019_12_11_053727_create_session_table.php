@@ -14,10 +14,11 @@ class CreateSessionTable extends Migration
     public function up()
     {
         Schema::create('session', function (Blueprint $table) {
-            $table->string('sessionId');
+            $table->string('sessionId')->unique();
             $table->integer('level');
             $table->string('phoneNumber');
             $table->softDeletes('deleted_at');
+            $table->integer('step')->default(1);
             $table->timestamps();
         });
     }

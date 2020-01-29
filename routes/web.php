@@ -11,15 +11,21 @@
 |
 */
 
+use App\Http\Controllers\mapsController;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::post('africaistalkingussd','UssdController@index');
 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+
+Route::get('/home', 'mapsController@index');
+
+Route::resource('mapsx','cycuvvc@index');
 
 Route::resource('riders', 'RiderController');
 
@@ -32,4 +38,7 @@ Route::resource('logs', 'LogController');
 Route::resource('districts', 'DistrictController');
 
 Route::resource('bodas', 'BodaController');
+
+Route::resource('charts', 'RiderChartController');
+
 

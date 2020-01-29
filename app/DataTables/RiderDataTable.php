@@ -65,6 +65,7 @@ class RiderDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            'id',
             'FirstName',
             'LastName',
             'gender',

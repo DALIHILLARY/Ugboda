@@ -16,10 +16,10 @@
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Catergory Field -->
+<!-- Category Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('catergory', 'Catergory:') !!}
-    {!! Form::text('catergory', null, ['class' => 'form-control']) !!}
+    {!! Form::label('category', 'Category:') !!}
+    {!! Form::text('category', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Progress Field -->
