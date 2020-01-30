@@ -142,6 +142,16 @@ class UssdController extends Controller
                         case "4":
                             //rider details.... be put there soon
                             $riderId = DB::table('phone')->where('phone_No',$phoneNumber)->value('rider_Id');
+                            $info = DB::table('rider')
+                                    ->join('phone','rider.id','=','phone.rider_Id')
+                                    ->join('boda_details','rider.plate_Id','=','boda_details.plate')
+                                    ->join('districts','rider.District_Id','=','districts.code')
+                                    ->select('rider.*','phone.*','boda_details.*','districts.*')->get();
+                                    foreach($info as $infos){
+                                        dd($infos);
+                                    }
+
+
                             $bodaPlate = DB::table('rider')->where('id',$riderId)->value('plate_Id');
                             $ownerPhones = DB::table('phone')->where('boda_Id',$bodaPlate)->pluck('phone_No');
 
@@ -172,6 +182,7 @@ class UssdController extends Controller
 
                         case "5":
                             //boda logs... see that later
+
 
                             break;
 
