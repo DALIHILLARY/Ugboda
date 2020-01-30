@@ -36,9 +36,8 @@ class UssdController extends Controller
         //get inputs
         $sessionId = $_REQUEST["sessionId"];
         $serviceCode = $_REQUEST["serviceCode"];
-        $phoneNumber = ltrim($_REQUEST["phoneNumber"], "256");
-
-        $text = $_REQUEST["text"];   //
+        $phoneNumber = ltrim($_REQUEST["phoneNumber"], "+256");
+        $text = strtoupper($_REQUEST["text"]);   //all responses set to upper case
 
 
          //Explode the text to get the value of the latest interaction - think 1*1
@@ -53,16 +52,16 @@ class UssdController extends Controller
         if($user->exists())
         {
             //get user step in the database
-            $step = DB::table('session')->where('sessionId',$sessionId)->value('step');
-            $count =0;
+            // $step = DB::table('session')->where('sessionId',$sessionId)->value('step');
+            // $count =0;
 
             for($i=0; $i < count($textArray) ; $i++){
-                $count = $count +1;
+                // $count = $count +1;
 
-                //skip current iteration if count is not greater that previous steps
-                if($count < $step){
-                    continue;
-                }
+                // //skip current iteration if count is not greater that previous steps
+                // if($count < $step){
+                //     continue;
+                // }
 
                 //Set the default level of the user
                 $level=0;
@@ -359,21 +358,21 @@ class UssdController extends Controller
             }
             //update step for user tracking
 
-            DB::table('session')->where('sessionId',$sessionId)->update(['step'=>$count,'created_at'=>$date, 'updated_at'=>$date]);
+            //DB::table('session')->where('sessionId',$sessionId)->update(['step'=>$count,'created_at'=>$date, 'updated_at'=>$date]);
 
         }
         else{
-            //get user step in the database
-            $step = DB::table('session')->where('sessionId',$sessionId)->value('step');
-            $count =0;
+            // //get user step in the database
+            // $step = DB::table('session')->where('sessionId',$sessionId)->value('step');
+            // $count =0;
 
             for($i=0; $i < count($textArray) ; $i++){
 
 
-                //skip current iteration if count is not greater that previous steps
-                if($count < $step){
-                    continue;
-                }
+                // //skip current iteration if count is not greater that previous steps
+                // if($count < $step){
+                //     continue;
+                // }
 
                 //Set the default level of the user
                 $level=0;
@@ -617,9 +616,9 @@ class UssdController extends Controller
                 }
             }
 
-            //update step for user tracking
+            // //update step for user tracking
 
-            DB::table('session')->where('sessionId',$sessionId)->update(['step'=>$count,'created_at'=>$date, 'updated_at'=>$date]);
+            // DB::table('session')->where('sessionId',$sessionId)->update(['step'=>$count,'created_at'=>$date, 'updated_at'=>$date]);
         }
 
     }

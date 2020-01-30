@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('africaistalkingussd','UssdController@index');
+Route::put('africaistalkingussd','UssdController@index');
 
 
 Auth::routes();

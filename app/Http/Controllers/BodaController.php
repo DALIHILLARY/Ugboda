@@ -53,6 +53,14 @@ class BodaController extends AppBaseController
     {
         $input = $request->all();
 
+           //change all input to capital letters
+           $token = array_values($input)[0];
+           $input = array_flip($input);
+           $input = array_change_key_case($input,CASE_UPPER);
+           $input = array_flip($input);
+           $input["_token"]= $token;
+
+
         $boda = $this->bodaRepository->create($input);
 
         Flash::success('Boda saved successfully.');

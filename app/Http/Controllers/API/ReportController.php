@@ -26,7 +26,7 @@ class ReportController extends Controller
                 'properties' => new ReportResource($report),
                 'geometry'   => [
                     'type'        => 'Point',
-                    'coordinates' =>explode(",",$report->location),
+                    'coordinates' =>array_reverse(explode(",",$report->location)),
                 ],
             ];
         });
