@@ -13,7 +13,7 @@
         "bavix/laravel-admin-leaflet": "^1.0",
         "consoletvs/charts": "^6.5",
         "doctrine/dbal": "~2.3",
-        "dompdf/dompdf": "^0.8.3",
+        "dompdf/dompdf": "^2.0.0",
         "fideloper/proxy": "^4.0",
         "geoip2/geoip2": "^2.10",
         "infyomlabs/adminlte-templates": "6.0.x-dev",
